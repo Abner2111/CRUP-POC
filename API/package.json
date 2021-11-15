@@ -1,0 +1,19 @@
+{
+  "name": "tutoria",
+  "version": "1.0.0",
+  "description": "REST API FOR USER MANAGING",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV=production node_modules/react-scripts/bin/react-scripts.js start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.12",
+    "morgan": "^1.10.0"
+  }
+}

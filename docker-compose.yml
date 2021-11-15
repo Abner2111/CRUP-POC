@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  mongo-db:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+    ports: 
+      - 27017:27017
+    volumes:
+      - .mongodb:/data/db
+
+  user-service: 
+    build: ./API
+    volumes: 
+      - ./API:/app
+    ports: 
+      - 3000:3000
+    depends_on:
+      - mongo-db
+  web-app:
+    build: ./course-manager
+    volumes:
+      - ./course-manager:/app
+    ports:
+      - 80:80
+    depends_on:
+      - user-service
+networks:
+  default:
+    external: true
+    name: dbnetwork
+
+  
